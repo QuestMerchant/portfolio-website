@@ -1,0 +1,300 @@
+:root {
+  font-family: Lato, sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 400;
+  font-synthesis: style;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  max-width: 1920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Montserrat, sans-serif;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: .5rem;
+  text-transform: capitalize;
+}
+
+p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/*----------------------------------
+  Background Position
+------------------------------------*/
+.bg-position--center {
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.bg--fixed {
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
+/*----------------------------------
+  Letter Spacing
+------------------------------------*/
+.letter-spacing--1 {
+  letter-spacing: .0625rem;
+}
+
+.letter-spacing--2 {
+  letter-spacing: .125rem;
+}
+
+.letter-spacing--3 {
+  letter-spacing: .1875rem;
+}
+
+/*----------------------------------
+  Overflow
+------------------------------------*/
+.overflow--hidden {
+  overflow: hidden;
+}
+
+/*----------------------------------
+  Overlay
+------------------------------------*/
+.overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.overlay:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  content: " ";
+}
+
+/*----------------------------------
+  Icons
+------------------------------------*/
+.icon {
+  display: inline-block;
+  text-align: center;
+  align-content: center;
+  vertical-align: middle;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.icon:focus, .icon:hover {
+  text-decoration: none;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+/* Sizes
+------------------------------ */
+.icon--sm {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.8125rem;
+  padding: 0.6875rem;
+}
+
+.icon--md {
+  width: 3.125rem;
+  height: 3.125rem;
+  font-size: 1.125rem;
+  padding: 0.75rem;
+}
+
+.icon--lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.625rem;
+  padding: 0.5625rem 1rem;
+}
+
+/* Styles
+------------------------------ */
+.icon--white-brd {
+  color: #fff;
+  background: transparent;
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-color: #fff;
+  line-height: 1.4;
+}
+
+.icon--white-brd:focus, .icon--white-brd:hover {
+  color: #fff;
+  background: #13b1cd;
+  border-color: #13b1cd;
+}
+
+.icon--white-bg {
+  color: #222324;
+  background: #fff;
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-color: #fff;
+  line-height: 1.4;
+}
+
+.icon--white-bg:focus, .icon--white-bg:hover {
+  color: #13b1cd;
+  background: #fff;
+  border-color: #fff;
+}
+
+.icon--primary-brd {
+  color: #13b1cd;
+  background: transparent;
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-color: #13b1cd;
+  line-height: 1.4;
+}
+
+.icon--primary-brd:focus, .icon--primary-brd:hover {
+  color: #fff;
+  background: #13b1cd;
+  border-color: #13b1cd;
+}
+
+.icon--primary-bg {
+  color: #fff;
+  background: #13b1cd;
+  line-height: 1.6;
+}
+
+/*----------------------------------
+  Scroll To Section
+------------------------------------*/
+.scroll-to-section {
+  position: absolute;
+  left: 50%;
+  bottom: 0.625rem;
+  z-index: 1;
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+  text-align: center;
+}
+
+/*----------------------------------
+  Back To Top
+------------------------------------*/
+.back-to-top {
+  position: fixed;
+  right: 3.125rem;
+  bottom: -3.125rem;
+  display: block;
+  width: 1.875rem;
+  height: 3rem;
+  z-index: 9;
+  background: var(--bs-info);
+  border-style: solid;
+  border-radius: 3.125rem;
+  text-align: center;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.back-to-top:before {
+  display: block;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-family: themify;
+  color: var(--bs-emphasis-color);
+  line-height: 3rem;
+  content: "\e627";
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.back-to-top:hover {
+  background: var(--bs-secondary-bg);
+}
+
+.back-to-top:hover:before {
+  color: var(--bs-primary);
+}
+
+.back-to-top:focus, .back-to-top:hover {
+  text-decoration: none;
+}
+
+/* The button becomes visible */
+.back-to-top.-is-visible {
+  bottom: 3.125rem;
+  opacity: .8;
+}
+
+.back-to-top.-is-visible:hover {
+  opacity: 1;
+}
+
+/* If the user keeps scrolling down, the button is out of focus and becomes less visible */
+.back-to-top.-zoom-out {
+  opacity: .6;
+  transform: scale(0.8);
+}
+/*----------------------------------
+  Border Radius
+------------------------------------*/
+.radius--3 {
+  border-radius: 0.1875rem !important;
+}
+
+.radius--4 {
+  border-radius: 0.25rem !important;
+}
+
+.radius--10 {
+  border-radius: 0.625rem !important;
+}
+
+.radius--50 {
+  border-radius: 3.125rem !important;
+}
+
+.radius--circle {
+  border-radius: 50% !important;
+}
+
+.radius--left-4 {
+  border-top-left-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
+}
+
+.radius--right-4 {
+  border-top-right-radius: 0.25rem !important;
+  border-bottom-right-radius: 0.25rem !important;
+}
+
+.radius--left-50 {
+  border-top-left-radius: 3.125rem !important;
+  border-bottom-left-radius: 3.125rem !important;
+}
+
+.radius--right-50 {
+  border-top-right-radius: 3.125rem !important;
+  border-bottom-right-radius: 3.125rem !important;
+}
+
+
+
+
