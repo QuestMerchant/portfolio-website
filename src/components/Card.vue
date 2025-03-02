@@ -29,7 +29,7 @@ const cardTilt = computed(() => {
   // Rotate on X & Y axis up to 30 degrees. Tilts towards the cursor
   const rX = mousePX.value * 30 
   const rY = mousePY.value * -30 // Negative to keep tilt away from cursor
-  return {transform: `rotateX(${rY}deg) rotateY(${rX}deg)`}
+  return {transform: `rotateX(${rY}deg) rotateY(${rX}deg)`} // X controls Y and visa versa
 })
 const cardBgTransform = computed(() => {
   // Move background image relative to cursor, in opposite direction
@@ -67,7 +67,9 @@ const handleMouseEnter = () => {
     <div class="card" :style="cardTilt">
       <div class="card-bg" :style="cardBgTransform"></div>
       <div class="card-info">
-        <slot name="header"></slot>
+        <h1>
+          <slot name="header"></slot>
+        </h1>
         <p>
           <slot name="content"></slot>
         </p>
@@ -79,6 +81,10 @@ const handleMouseEnter = () => {
 <style scoped lang="scss">
 $hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
 $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+h1 {
+  font-size: 2rem;
+}
 
 .card-wrap {
   margin: 10px;
@@ -136,59 +142,57 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
     inset #333 0 0 0 5px,
     inset rgba(white, 0.5) 0 0 0 6px;
   transition: 1s $returnEasing;
-}
 
-.card-bg {
-  opacity: 0.5;
-  position: absolute;
-  top: -20px; left: -20px;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  transition:
-    1s $returnEasing,
-    opacity 5s 1s $returnEasing;
-  pointer-events: none;
-  box-sizing: content-box;
-  @media (min-width: 100px) {
-    background-image: v-bind('props.img')
-  }
-}
-
-.card-info {
-  padding: 20px;
-  position: absolute;
-  bottom: 0;
-  color: #fff;
-  transform: translateY(40%);
-  transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-  p {
-    opacity: 0;
-    text-shadow: rgba(black, 1) 0 2px 3px;
-    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-  
-  * {
-    position: relative;
-    z-index: 1;
-  }
-  
-  &:after {
-    content: '';
+  &-bg {
+    opacity: 0.5;
     position: absolute;
-    top: 0; left: 0;
-    z-index: 0;
+    top: -20px; left: -20px;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, transparent 0%, rgba(#000, 0.6) 100%);
-    background-blend-mode: overlay;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: 5s 1s $returnEasing;
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition:
+      1s $returnEasing,
+      opacity 5s 1s $returnEasing;
+    pointer-events: none;
+    box-sizing: content-box;
+    @media (min-width: 100px) {
+      background-image: v-bind('props.img')
+    }
+  }
+
+  &-info {
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    transform: translateY(40%);
+    transition: 0.6s 1.6s $hoverEasing;
+
+    p {
+      opacity: 0;
+      text-shadow: rgba(black, 1) 0 2px 3px;
+      transition: 0.6s 1.6s $returnEasing;
+    }
+    
+    * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: 5s 1s $returnEasing;
+    }
   }
 }
 </style>

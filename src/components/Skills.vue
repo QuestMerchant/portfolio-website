@@ -8,7 +8,7 @@ const card3 = 'https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?q=80
   <div class=container>
     <Card :img="`url(${card1})`">
       <template #header>
-        <h1>Problem-solving</h1>
+        Problem-solving
       </template>
       <template #content>
         Whether it's fixing a frontend bug or researching and creating algorithms for the backend.
@@ -16,7 +16,7 @@ const card3 = 'https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?q=80
     </Card>
     <Card :img="`url(${card2})`">
       <template #header>
-        <h1>API integration</h1>
+        API integration
       </template>
       <template #content>
         Experience with Auth0, Google Firebase and a few other smaller ones.
@@ -24,7 +24,7 @@ const card3 = 'https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?q=80
     </Card>
     <Card :img="`url(${card3})`">
       <template #header>
-        <h1>Creativity</h1>
+        Creativity
       </template>
       <template #content>
         Hopefully this is a good enough example.
@@ -34,9 +34,8 @@ const card3 = 'https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?q=80
 </template>
 <style scoped lang="scss">
 .container {
-  padding: 40px 80px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 </style>
