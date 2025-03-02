@@ -5,7 +5,7 @@ const card2 = 'https://plus.unsplash.com/premium_photo-1675433344518-21eb72dfc7a
 const card3 = 'https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 </script>
 <template>
-  <div class=container>
+  <div class="container-fluid">
     <Card :img="`url(${card1})`">
       <template #header>
         Problem-solving
@@ -33,9 +33,11 @@ const card3 = 'https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?q=80
   </div>
 </template>
 <style scoped lang="scss">
-.container {
+.container-fluid {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  justify-content: center;
 }
 </style>
