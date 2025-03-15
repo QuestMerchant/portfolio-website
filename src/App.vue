@@ -39,7 +39,7 @@ window.addEventListener("scroll", updateScroll)
     <div
       class="parallax-image"
       style="
-        background-image: url('./images/city.jpg');">
+        background-image: url('./images/city.jpg')">
       <h2 class="parallax-h">skills</h2>
     </div>
   </div>
@@ -51,7 +51,7 @@ window.addEventListener("scroll", updateScroll)
     <div
       class="parallax-image"
       style="
-        background-image: url('./images/mountain.jpg');">
+        background-image: url('./images/mountain.jpg')">
       <h2 class="parallax-h">Portfolio</h2>
     </div>
   </div>
@@ -63,7 +63,7 @@ window.addEventListener("scroll", updateScroll)
     <div
       class="parallax-image"
       style="
-        background-image: url('./images/dark.jpg');">
+        background-image: url('./images/dark.jpg')">
       <h2 class="parallax-h">Contact</h2>
     </div>
   </div>
