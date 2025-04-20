@@ -128,7 +128,7 @@ const filteredProjects = computed(() => {
             Clear all
           </button>
         </div>
-        <label style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#portfolioModal">View More</label>
+        <label style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#portfolioModal">View More!</label>
       </nav>
       <!-- Filter Tabs End-->
       <!-- Filter Options Start -->
@@ -143,24 +143,26 @@ const filteredProjects = computed(() => {
       <!-- End Portfolio Filter -->
       <!-- Display Results Start -->
       <div class="container mb-5">
-        <transition-group name="project" tag="ul" class="list">
-          <li class="project" v-for="project in filteredProjects" :key="project.id">
-            <div class="portfolio-cover" :style="{ backgroundImage: `url(${project.img})`}">
-              <div class="text-light">
-                <p>Languages: {{project.languages}}</p>
-                <h3>{{project.name}}</h3>
+        <transition-group name="project" tag="div" class="row">
+          <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3" v-for="project in filteredProjects" :key="project.id">
+            <div class="project">
+              <div class="portfolio-cover" :style="{ backgroundImage: `url(${project.img})`}">
+                <div class="text-light">
+                  <p>Languages: {{project.languages}}</p>
+                  <h3>{{project.name}}</h3>
+                </div>
+              </div>
+              <div class="portfolio-hover">
+                <div class="mb-1">
+                  <h4>Summary</h4>
+                  <p>{{project.summary}}</p>
+                </div>
+                <a :href="project.link" class="icon icon--sm radius--circle icon--white-bg">
+                  <i class="ti-link"></i>
+                </a>
               </div>
             </div>
-            <div class="portfolio-hover">
-              <div class="mb-1">
-                <h4>Summary</h4>
-                <p>{{project.summary}}</p>
-              </div>
-              <a :href="project.link" class="icon icon--sm radius--circle icon--white-bg">
-                <i class="ti-link"></i>
-              </a>
-            </div>
-          </li>
+          </div>
         </transition-group>
       </div>
       <!-- Display Results End -->  
@@ -183,6 +185,10 @@ const filteredProjects = computed(() => {
 </template>
 
 <style scoped lang="scss">
+.row {
+  justify-content: center;
+}
+
 .list-group-item {
   border: none;
   background-color: var(--bs-primary-bg);
@@ -299,12 +305,11 @@ const filteredProjects = computed(() => {
 .project {
   position: relative;
   height: 240px;
-  width: calc(100% / 2 - 1rem);
-  display: inline-flex;
+  padding-left: 0px;
+  padding-right: 0px;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 1rem;
-  margin-right: 1rem;
   margin-bottom: 0.75rem;
   border-radius: 6px;
   box-shadow: 0 0 0 1px #111;
@@ -313,7 +318,6 @@ const filteredProjects = computed(() => {
   z-index: 1;
   overflow: hidden;
 
-  @media (min-width: 800px) { width: calc(100% / 3 - 1rem) }
 
   /* items moving that stay visible */
   &-move {
