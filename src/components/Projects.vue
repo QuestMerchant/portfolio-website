@@ -27,29 +27,23 @@ const filterMenuRef = useTemplateRef("filterMenu")
 function initializeFilters() {
   projects.value.forEach(project => {
     // Process Languages
-    project.languages {
-      project.languages.forEach(lang => {
-        if (!(lang in filters.languages)) {
-          filters.languages[lang] = false
-        }
-      })
-    },
+    project.languages.forEach(lang => {
+      if (!(lang in filters.languages)) {
+        filters.languages[lang] = false
+      }
+    }),
     // Process Frameworks
-    project.frameworks {
-      project.frameworks.forEach(frame => {
-        if (!(frame in filters.frameworks)) {
-          filters.frameworks[frame] = false
-        }
-      })
-    },
+    project.frameworks.forEach(frame => {
+      if (!(frame in filters.frameworks)) {
+        filters.frameworks[frame] = false
+      }
+    }),
     // Process Features
-    project.features {
-      project.features.forEach(feat => {
-        if (!(feat in filters.features)) {
-          filters.features[feat] = false
-        }
-      })
-    }
+    project.features.forEach(feat => {
+      if (!(feat in filters.features)) {
+        filters.features[feat] = false
+      }
+    })
   })
 }
 onMounted(() =>{
