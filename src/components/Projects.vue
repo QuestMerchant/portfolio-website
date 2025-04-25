@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed, useTemplateRef, watch, nextTick } from 'vue'
+import { ref, reactive, computed, useTemplateRef, watch, nextTick, onMounted } from 'vue'
 
 const projects = ref([
   { id: 1, name: "Portfolio Website", languages: ["JavaScript", "SCSS", "CSS", "HTML"], frameworks: ["Vue"], features: [], img: "https://images.unsplash.com/photo-1729541777356-e28f6cd67fb6?q=80&w=1970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", summary: "A static webpage to demo a few skills and act as a portfolio", link: "https://github.com/QuestMerchant/portfolio-website"},
@@ -11,9 +11,9 @@ const projects = ref([
 ])
 const dropdown = reactive({ height: 0 })
 const filters = reactive({
-  languages: {"Python": false, "HTML": false, "CSS": false, "SCSS": false, "Javascript": false, "SQL":false,"NoSQL":false, "QML":false},
-  frameworks: {"Flask":false, "Qt":false, "Vue":false, "PySide":false},
-  features: {"CRUD":false, "Authorisation":false, "Singleton":false, "Factory Method":false, "Google Firebase":false, "Automation":false, "Graphing":false, "Data Visualisation":false}
+  languages: {},
+  frameworks: {},
+  features: {}
 })
 const filterMenus = reactive({
   languages: false,
@@ -21,6 +21,40 @@ const filterMenus = reactive({
   features: false
 })
 const filterMenuRef = useTemplateRef("filterMenu")
+
+
+// Extract unique data from projects
+function initializeFilters() {
+  projects.value.forEach(project => {
+    // Process Languages
+    project.languages {
+      project.languages.forEach(lang => {
+        if (!(lang in filters.languages)) {
+          filters.languages[lang] = false
+        }
+      })
+    },
+    // Process Frameworks
+    project.frameworks {
+      project.frameworks.forEach(frame => {
+        if (!(frame in filters.frameworks)) {
+          filters.frameworks[frame] = false
+        }
+      })
+    },
+    // Process Features
+    project.features {
+      project.features.forEach(feat => {
+        if (!(feat in filters.features)) {
+          filters.features[feat] = false
+        }
+      })
+    }
+  })
+}
+onMounted(() =>{
+  initializeFilters()
+})
 
 /*-----------
   Filter
