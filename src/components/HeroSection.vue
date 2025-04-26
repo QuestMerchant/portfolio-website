@@ -101,7 +101,7 @@ onUnmounted(() => {
         <div class="container" data-swiper-parallax="-300">
           <div>
             <h2>
-              Gibberish<br />Latin Gibberish<br />More nonsense
+              Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit.<br />Aliquam et ultricies leo. 
             </h2>
           </div>
           <a
