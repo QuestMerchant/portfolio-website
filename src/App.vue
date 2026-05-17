@@ -35,11 +35,10 @@ window.addEventListener("scroll", updateScroll)
   <Header />
   <HeroSection id="hero"/>
   <!-- Parallax 1 Start -->
-    <div class="parallax-container">
+  <div class="parallax-container">
     <div
       class="parallax-image"
-      style="
-        background-image: url('./images/city.jpg')">
+      style="background-image: url('./images/city.jpg')">
       <h2 class="parallax-h">skills</h2>
     </div>
   </div>
@@ -50,8 +49,7 @@ window.addEventListener("scroll", updateScroll)
   <div class="parallax-container">
     <div
       class="parallax-image"
-      style="
-        background-image: url('./images/mountain.jpg')">
+      style="background-image: url('./images/mountain.jpg')">
       <h2 class="parallax-h">Portfolio</h2>
     </div>
   </div>
@@ -62,21 +60,32 @@ window.addEventListener("scroll", updateScroll)
   <div class="parallax-container">
     <div
       class="parallax-image"
-      style="
-        background-image: url('./images/dark.jpg')">
+      style="background-image: url('./images/dark.jpg')">
       <h2 class="parallax-h">Contact</h2>
     </div>
   </div>
   <!-- End Parallax -->
   <!-- Contact Form -->
   <Contact id="contact"/>
-  <button class="back-to-top" :class="{ '-is-visible': isVisible, '-zoom-out': isZoomedOut }" @click="scrollToTop"></button>
+  <button
+    @click="scrollToTop"
+    :class="[
+      'fixed right-6 bottom-6 z-50 flex items-center justify-center w-6 h-8 rounded-full bg-blue-500 text-white shadow-lg transition-transform duration-200',
+      isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none',
+      isZoomedOut ? 'translate-y-2' : ''
+    ]"
+    aria-label="Back to top"
+    title="Back to top"
+  >
+    <span class="sr-only">Back to top</span>
+    <i class="ti-arrow-up" aria-hidden="true"></i>
+  </button>
 </template>
 
 <style scoped>
 /*----------------------------------
   Parallax 
-------------------------------------*/
+ ------------------------------------*/
 .parallax-container {
   position: relative;
   height: 300px;
@@ -104,7 +113,7 @@ window.addEventListener("scroll", updateScroll)
 .parallax-h {
   font-size: 3rem;
 }
-/* Vertical scroll for wide screen, horizontal scroll for narrow screen*/
+
 @keyframes move-background {
   from {
     background-position: 0% 0%;

@@ -47,7 +47,7 @@ const handleMouseMove = (e) => {
 }
 
 const handleMouseLeave = () => {
-  mouseLeaveDelay = setTimeout(() => {
+  mouseLeaveDelay.value = setTimeout(() => {
     mouseX.value = 0
     mouseY.value = 0
   }, 1000)

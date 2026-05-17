@@ -33,57 +33,36 @@ const submitForm = async () => {
 </script>
 
 <template>
-  <div class="bg-primary-subtle">
-    <div class="container py-4 py-sm-5">
-      <!-- Title -->
-      <div class="text-xs-center mb-4">
-        <p class="letter-spacing--2 mb-3">Feedback</p>
-        <h2 class="fs-2">Send me a message</h2>
-      </div>
-      <form @submit.prevent="submitForm">
-        <div class="row mb-2">
-          <!-- Details -->
-          <div class="col-sm-6 mb-2 mb-md-4">
-            <div class="mb-2">
-              <input type="text" v-model="name" class="form-control form-input radius--50" placeholder="* Name" required>
-            </div>
-            <div class="mb-2">
-            <input type="email" v-model="email" class="form-control form-input radius--50" placeholder="* Email" required>
-            </div>
-            <input type="text" v-model="phone" class="form-control form-input radius--50" placeholder="* Phone">
-          </div>
-          <!-- Message Box -->
-          <div class="col-sm-6">
-            <textarea class="form-control form-input radius--10 py-2" v-model="message" rows="8" placeholder="* Your Message" required></textarea>
-          </div>
-        </div>
-        <div class="text-xs-center">
-          <button type="submit" :class="{ disabled: isDisabled }" class="text-uppercase btn btn-primary btn-sm px-5 py-2 radius--50 mb-3">{{ button }}</button>
-        </div>
-      </form>
-    </div>
-  </div>
+   <div class="bg-linear-to-b from-gray-50 to-gray-100 shadow-sm dark:from-gray-900 dark:to-gray-800 dark:text-gray-200 py-4 sm:py-5">
+     <div class="container px-4">
+       <!-- Title -->
+       <div class="text-center mb-4">
+         <p class="letter-spacing--2 mb-3">Feedback</p>
+         <h2 class="fs-2">Send me a message</h2>
+       </div>
+       <form @submit.prevent="submitForm">
+         <div class="flex flex-wrap mx-4 mb-2 ">
+           <!-- Details -->
+           <div class="w-full sm:w-1/2 px-4 mb-2 md:mb-4">
+             <div class="mb-2">
+               <input type="text" v-model="name" class="w-full h-14 text-sm font-light border border-gray-300 bg-white text-gray-900 placeholder-gray-500 tracking-wide px-5 py-2.5 rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:placeholder-gray-400" placeholder="* Name" required>
+             </div>
+             <div class="mb-2">
+               <input type="email" v-model="email" class="w-full h-14 text-sm font-light border border-gray-300 bg-white text-gray-900 placeholder-gray-500 tracking-wide px-5 py-2.5 rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:placeholder-gray-400" placeholder="* Email" required>
+             </div>
+             <input type="text" v-model="phone" class="w-full h-14 text-sm font-light border border-gray-300 bg-white text-gray-900 placeholder-gray-500 tracking-wide px-5 py-2.5 rounded-full transition-all duration-300 ease-in-out focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:placeholder-gray-400" placeholder="* Phone">
+           </div>
+           <!-- Message Box -->
+           <div class="w-full sm:w-1/2 px-4">
+             <textarea class="w-full text-sm font-light border border-gray-300 bg-white text-gray-900 placeholder-gray-500 tracking-wide px-5 py-4 rounded-lg transition-all duration-300 ease-in-out focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:placeholder-gray-400" v-model="message" rows="8" placeholder="* Your Message" required></textarea>
+           </div>
+         </div>
+         <div class="text-center">
+           <button type="submit" :class="{ 'opacity-50': isDisabled }" class="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-5 rounded-full uppercase transition-colors duration-200 mb-3 disabled:opacity-50 disabled:cursor-not-allowed">{{ button }}</button>
+         </div>
+       </form>
+     </div>
+   </div>
 </template>
 
-<style scoped lang="scss">
-.form-input {
-  min-height: 3.5rem;
-  font-size: 0.875rem;
-  font-weight: 300;
-  border: none;
-  box-shadow: none;
-  letter-spacing: .1rem;
-  padding: .625rem 1.25rem;
-  transition-duration: 300ms;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
 
-  &:focus {
-    font-weight: 400;
-    box-shadow: none;
-    transition-duration: 300ms;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
-  }
-}
-</style>

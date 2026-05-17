@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { register } from 'swiper/element/bundle'
 
-const text = 'Aspiring Full-Stack Developer'
+const text = 'Full-Stack Developer'
 const description = ref('')
 const isTyping = ref(true)
 let index = 0
@@ -14,25 +14,23 @@ const typeEffect = () => {
     setTimeout(typeEffect, 200)
   }
   else {
-    // Allow blinking for addintional time
     setTimeout(() => {
       isTyping.value = false
-    }, 2000)
+    }, 1500)
   }
 }
 onMounted(() => {
-  setTimeout(typeEffect, 700) 
+  setTimeout(typeEffect, 700)
 })
 
 /*---------------
   Swiper
-----------------*/
+ ----------------*/
 register()
-
 
 /*---------------
   Smooth Scroll
-----------------*/
+ ----------------*/
 const scrollToSection = (sectionId) => {
   const targetElement = document.getElementById(sectionId)
   if (targetElement) {
@@ -45,7 +43,7 @@ const scrollToSection = (sectionId) => {
 
 /*---------------
   Video Modal
-----------------*/
+ ----------------*/
 const videoModal = ref(null)
 const videoIframe = ref(null)
 const videoUrl = ref("https://www.youtube.com/embed/dQw4w9WgXcQ")
@@ -79,12 +77,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="hero c-swiper">
+  <section class="hero c-swiper bg-linear-to-b from-gray-50 to-gray-100 shadow-sm dark:from-gray-900 dark:to-gray-800">
     <!-- Swiper Wrapper -->
-    <swiper-container class="mySwiper" :parallax="true" speed="400"  navigation="true" :pagination="{dynamicBullets: true}">
+    <swiper-container class="mySwiper" :parallax="true" speed="400" navigation="true" :pagination="{dynamicBullets: true}">
       <div slot="container-start" class="parallax-bg" style="background-image: url('./images/keyboard.jpg')" data-swiper-parallax="-20%"></div>
       <swiper-slide>
-        <div class="container" data-swiper-parallax="-300">
+        <div data-swiper-parallax="-300">
           <h1 class="hero-title">Welcome to My Portfolio</h1>
           <p class="hero-subtitle">
             {{ description }}<span v-if="isTyping" class="cursor">|</span>
@@ -93,15 +91,15 @@ onUnmounted(() => {
         </div>
       </swiper-slide>
       <swiper-slide>
-        <div class="container" data-swiper-parallax="-300">
-          <h1>A smooth experience<br />for both mobile <br />and desktop users</h1>
+        <div data-swiper-parallax="-300">
+          <h1 class="text-2xl">A smooth experience<br />for both mobile <br />and desktop users</h1>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <div class="container" data-swiper-parallax="-300">
-          <div>
-            <h2>
-              Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit.<br />Aliquam et ultricies leo. 
+        <div data-swiper-parallax="-300">
+          <div class="mb-6">
+            <h2 class="text-2xl">
+              Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit.<br />Aliquam et ultricies leo.
             </h2>
           </div>
           <a
@@ -109,53 +107,34 @@ onUnmounted(() => {
             data-bs-target="#videoModal"
             href="#"
             title="Best Video"
-          >
-            <i class="icon icon--lg icon--white-bg radius--circle ti-control-play"></i>
+           >
+              <i class="ti-control-play border-2 border-gray-300 rounded-full p-2 text-2xl text-red-300"></i>
           </a>
-          
         </div>
       </swiper-slide>
     </swiper-container>
     <!-- End Swiper Wrapper-->
     <!-- Pop up Video -->
     <div ref="videoModal" id="videoModal" class="modal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <iframe 
-            ref="videoIframe"
-            width="100%" 
-            height="400" 
-            :src="videoUrl" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              ref="videoIframe"
+              width="100%"
+              height="400"
+              :src="videoUrl"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-    <!-- Arrows 
-    <a
-      href="javascript:void(0);"
-      class="c-swiper__arrow--right icon icon--md icon--white-brd radius--circle ti-angle-right"
-      @click="nextSlide()"
-    ></a>
-    <button
-      type="button"
-      @click="nextSlide()"
-      class="c-swiper__arrow--left icon icon--md icon--white-brd radius--circle ti-angle-left"
-    ></button>
-     End Arrows -->
-
-    <!-- Scroll to Skills Section -->
-    <a href="#skills" class="scroll-to-section hero-content" @click.prevent="scrollToSection('skills')">
-      <span class="ti-angle-double-down icon--md"></span>
-      <p class="hero-subtitle">Skills</p>
-    </a>
   </section>
 </template>
 
@@ -165,10 +144,8 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to right, #4facfe, #00f2fe);
   color: #ffffff;
   text-align: center;
-  padding: 0 20px;
 }
 
 .hero-content {
@@ -208,14 +185,10 @@ onUnmounted(() => {
 
 /*----------------------------------
   Swiper
-------------------------------------*/
+ ------------------------------------*/
 swiper-container {
   height: 100%;
   width: 100%;
-
-  &::part(button-next) {
-    
-  }
 
   &::part(button-next),
   &::part(button-prev) {
@@ -234,7 +207,7 @@ swiper-container {
     border-radius: 50%;
     border-width: 0.0625rem;
 
-    &:hover{
+    &:hover {
       background-color: rgba(12, 12, 12, 0.3)
     }
   }
@@ -263,13 +236,6 @@ swiper-slide {
   width: 100%;
   overflow: hidden;
 }
-// No arrows for mobile
-@media (max-width: 47.9em) {
-  swiper-container::part(button-next),
-  swiper-container::part(button-prev) {
-    opacity: 0;
-  }
-}
 
 /* Disappearing arrows
 @media (max-width: 47.9em) {
@@ -282,7 +248,7 @@ swiper-slide {
 
 /*----------------------------------
   Typewriter
-------------------------------------*/
+ ------------------------------------*/
 .typewriter {
   white-space: pre-wrap;
   overflow: hidden;
