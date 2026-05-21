@@ -164,7 +164,7 @@ h1 {
   }
 
   &-info {
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     bottom: 0;
     color: #fff;

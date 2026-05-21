@@ -8,18 +8,26 @@ const card3 = 'https://images.unsplash.com/photo-1435224654926-ecc9f7fa028c?q=80
   <div class="flex justify-center bg-linear-to-b from-gray-50 to-gray-100 shadow-sm dark:from-gray-900 dark:to-gray-800 py-4 flex-wrap">
     <Card :img="`url(${card1})`">
       <template #header>
-        Problem-solving
+        Performance & Optimization
       </template>
       <template #content>
-        Whether it's fixing a frontend bug or researching and creating algorithms for the backend.
+        Experienced in refactoring rendering logic, caching data, SQL optimization top reduce costs and loading times.
       </template>
     </Card>
     <Card :img="`url(${card2})`">
       <template #header>
-        API integration
+        API architecture & Integration
       </template>
       <template #content>
-        Experience with Auth0, Google Firebase and a few other smaller ones.
+        Experienced in designing secure, scalable RESTful API endpoints and handling webhooks. Track record of integrating third-party APIs such as Shopify, Paystack, Firebase and more.
+      </template>
+    </Card>
+    <Card :img="`url(${card3})`">
+      <template #header>
+        Data Management & Modeling
+      </template>
+      <template #content>
+        Proficient in designing relational database schemas and managing data flow using PostgreSQL. Writing clean server-side logic to read, process, and synchronize data across multiple external data sources.
       </template>
     </Card>
     <Card :img="`url(${card3})`">
